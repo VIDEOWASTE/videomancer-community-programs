@@ -1,0 +1,120 @@
+# Copyright (C) 2026 VIDEOWASTE
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# This file is part of Videomancer Community Programs.
+# See LICENSE file in the repository root for full license text.
+#
+# H/V Scroll Program Configuration
+
+[program]
+program_id = "com.videowaste.h_v_scroll"
+program_name = "H/V Scroll"
+program_version = "0.0.1"
+abi_version = ">=1.0,<2.0"
+author = "VIDEOWASTE"
+license = "GPL-3.0"
+category = "Warp"
+description = "Horizontal scroll/pan with animated motion and diagonal rolling effects."
+url = "https://github.com/VIDEOWASTE/VIDEOMANCER-Control-Interface"
+hardware_compatibility = ["rev_a", "rev_b"]
+core = "yuv444_30b"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_1"
+name_label = "H Position"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 1023
+initial_value = 0
+display_float_digits = 0
+suffix_label = "px"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_2"
+name_label = "H Speed"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 0
+display_float_digits = 0
+suffix_label = "%"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_3"
+name_label = "V Speed"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 0
+display_float_digits = 0
+suffix_label = "%"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_4"
+name_label = "Diagonal"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 0
+display_float_digits = 0
+suffix_label = "%"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_5"
+name_label = "Wrap Blend"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 0
+display_float_digits = 0
+suffix_label = "%"
+
+[[parameter]]
+parameter_id = "rotary_potentiometer_6"
+name_label = "Bounce"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 0
+display_float_digits = 0
+suffix_label = "%"
+
+[[parameter]]
+parameter_id = "toggle_switch_7"
+name_label = "Animate H"
+value_labels = ["Off", "On"]
+initial_value_label = "Off"
+
+[[parameter]]
+parameter_id = "toggle_switch_8"
+name_label = "Animate V"
+value_labels = ["Off", "On"]
+initial_value_label = "Off"
+
+[[parameter]]
+parameter_id = "toggle_switch_9"
+name_label = "Reverse"
+value_labels = ["Off", "On"]
+initial_value_label = "Off"
+
+[[parameter]]
+parameter_id = "toggle_switch_10"
+name_label = "Quantize"
+value_labels = ["Off", "On"]
+initial_value_label = "Off"
+
+[[parameter]]
+parameter_id = "toggle_switch_11"
+name_label = "Bypass"
+value_labels = ["Off", "On"]
+initial_value_label = "Off"
+
+[[parameter]]
+parameter_id = "linear_potentiometer_12"
+name_label = "Dry/Wet"
+control_mode = "linear"
+display_min_value = 0
+display_max_value = 100
+initial_value = 1023
+display_float_digits = 0
+suffix_label = "%"
