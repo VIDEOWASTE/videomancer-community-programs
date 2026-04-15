@@ -1,109 +1,71 @@
-# Videomancer Community Programs
+# VIDEOWASTE Community Programs for Videomancer
 
-[![CI](https://github.com/lzxindustries/videomancer-community-programs/workflows/CI/badge.svg)](https://github.com/lzxindustries/videomancer-community-programs/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-A community repository for FPGA-based video processing programs for the [Videomancer](https://github.com/lzxindustries/videomancer-sdk) platform.
+FPGA video processing programs for the [Videomancer](https://github.com/lzxindustries/videomancer-sdk) platform by [VIDEOWASTE](https://github.com/VIDEOWASTE).
 
-## 🎨 What is Videomancer?
+## Programs
 
-Videomancer is an open-source FPGA video synthesis platform by LZX Industries. It allows you to create real-time video effects by writing VHDL code that runs directly on FPGA hardware.
+### Time Displace
 
-**This repository** collects community-created programs that extend the capabilities of Videomancer hardware with new effects, processors, and creative tools.
+Luma-controlled temporal delay. Bright areas show current video while dark areas show older video, creating surreal time-displacement effects with ghostly motion trails.
 
-## 🚀 Quick Start
+**Controls:**
+| Knob | Function |
+|------|----------|
+| Depth | Maximum time displacement range |
+| Threshold | Luma cutoff for displacement |
+| Smoothing | Spatial smoothing of displacement map |
+| Edge Boost | Enhance edges at time boundaries |
+| Color Shift | Full-spectrum hue shift (blue/magenta/red/cyan) |
+| Contrast | Output contrast adjustment |
+| Dry/Wet | Mix between clean and processed signal |
 
-If you want to build the community programs for your Videomancer hardware:
+**Switches:** Negative, Mono, Solarize, Edge Only, Bypass
+
+### Temporal Diff
+
+Motion detection via temporal pixel difference. Highlights areas of change between frames with threshold control, colorization, and adjustable persistence.
+
+**Controls:**
+| Knob | Function |
+|------|----------|
+| Threshold | Motion detection sensitivity |
+| Persistence | How long motion trails linger |
+| Color Amount | Colorize motion areas |
+| Gain | Amplify detected motion |
+| Decay | Fade rate of motion trails |
+| Contrast | Output contrast |
+| Dry/Wet | Mix between clean and processed signal |
+
+## Downloads
+
+Pre-built `.vmprog` files (Rev B) are available on the [Releases](https://github.com/VIDEOWASTE/videomancer-community-programs/releases) page. Copy to your SD card to use.
+
+## Building from Source
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/lzxindustries/videomancer-community-programs.git
+# Clone
+git clone https://github.com/VIDEOWASTE/videomancer-community-programs.git
 cd videomancer-community-programs
 
-# 2. Initialize submodules
+# Initialize submodules
 git submodule update --init --recursive
 
-# 3. Run setup (one-time)
+# Setup toolchain (one-time)
 ./scripts/setup.sh
 
-# 4. Build all programs
-./build_programs.sh
+# Build all programs
+./build_programs.sh videowaste
+
+# Build a specific program
+./build_programs.sh videowaste time_displace
 ```
 
-Your compiled `.vmprog` files will be in the `out/` directory, ready to load onto your Videomancer hardware.
+Compiled `.vmprog` files will be in `out/rev_b/videowaste/`.
 
-## 🛠️ Building Programs
+## License
 
-The `build_programs.sh` script compiles VHDL programs into `.vmprog` packages for Videomancer hardware.
+GPL-3.0-only. See [LICENSE](LICENSE) for details.
 
-### Build All Programs
-
-Build everything in the repository:
-
-```bash
-./build_programs.sh
-```
-
-### Build Programs from a Vendor/Author
-
-Build all programs from a specific vendor (e.g., `lzx`):
-
-```bash
-./build_programs.sh lzx
-```
-
-### Build a Specific Program
-
-Build one specific program:
-
-```bash
-./build_programs.sh lzx passthru
-```
-
-### Output Directory Structure
-
-Built programs are placed in `out/`, organized by hardware revision and vendor:
-
-```
-out/
-└── rev_b/
-    ├── lzx/
-    │   ├── passthru.vmprog
-    │   └── yuv_amplifier.vmprog
-    └── [yourname]/
-        └── [yourprogram].vmprog
-```
-
-## 📚 Documentation
-
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute programs to this repository
-- **[Program Development Guide](videomancer-sdk/docs/program-development-guide.md)** - Complete VHDL development workflow
-- **[TOML Configuration Guide](videomancer-sdk/docs/toml-config-guide.md)** - Program configuration format
-- **[Videomancer SDK](https://github.com/lzxindustries/videomancer-sdk)** - Core SDK documentation
-
-## 🤝 Contributing
-
-We welcome community contributions! To contribute your own video processing programs:
-
-1. Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for detailed guidelines
-2. Create your program under `programs/yourname/programname/`
-3. Follow the [Program Development Guide](videomancer-sdk/docs/program-development-guide.md)
-4. Test thoroughly on hardware
-5. Submit a pull request
-
-All contributions are licensed under GPL-3.0.
-
-## 🎯 Example Programs
-
-Reference programs in `programs/lzx/`:
-
-- **passthru** - Minimal passthrough (1 cycle latency) - use as a template
-- **yuv_amplifier** - Color amplifier with 8 controls (14 cycle latency) - demonstrates multi-stage pipeline
-
-## ⚖️ License
-
-This repository is licensed under **GPL-3.0-only**.
-
-- All community contributions must be GPL-3.0 compatible
-- Programs retain original author copyright
-- See [LICENSE](LICENSE) for complete terms
+Built with the [Videomancer SDK](https://github.com/lzxindustries/videomancer-sdk) by LZX Industries.
