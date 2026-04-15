@@ -6,6 +6,8 @@ FPGA video processing programs for the [Videomancer](https://github.com/lzxindus
 
 ## Programs
 
+> **Note:** These programs are under active development. Expect changes between versions.
+
 ### Time Displace
 
 Luma-controlled temporal delay. Bright areas show current video while dark areas show older video, creating surreal time-displacement effects with ghostly motion trails.
