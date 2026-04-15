@@ -8,37 +8,14 @@ FPGA video processing programs for the [Videomancer](https://github.com/lzxindus
 
 > **Note:** These programs are under active development. Expect changes between versions.
 
-### Time Displace
-
-Luma-controlled temporal delay. Bright areas show current video while dark areas show older video, creating surreal time-displacement effects with ghostly motion trails.
-
-**Controls:**
-| Knob | Function |
-|------|----------|
-| Depth | Maximum time displacement range |
-| Threshold | Luma cutoff for displacement |
-| Smoothing | Spatial smoothing of displacement map |
-| Edge Boost | Enhance edges at time boundaries |
-| Color Shift | Full-spectrum hue shift (blue/magenta/red/cyan) |
-| Contrast | Output contrast adjustment |
-| Dry/Wet | Mix between clean and processed signal |
-
-**Switches:** Negative, Mono, Solarize, Edge Only, Bypass
-
-### Temporal Diff
-
-Motion detection via temporal pixel difference. Highlights areas of change between frames with threshold control, colorization, and adjustable persistence.
-
-**Controls:**
-| Knob | Function |
-|------|----------|
-| Threshold | Motion detection sensitivity |
-| Persistence | How long motion trails linger |
-| Color Amount | Colorize motion areas |
-| Gain | Amplify detected motion |
-| Decay | Fade rate of motion trails |
-| Contrast | Output contrast |
-| Dry/Wet | Mix between clean and processed signal |
+| Program | Description |
+|---------|-------------|
+| **H/V Scroll** | Horizontal scroll/pan with animated motion and diagonal rolling effects. |
+| **Luma Quantize** | Maps continuous video to retro fixed color palettes (1-bit, CGA, EGA-style) with optional ordered dithering. |
+| **Temporal Diff** | Motion detection via temporal pixel difference with threshold, colorization, and persistence. |
+| **Time Displace** | Luma-controlled temporal delay with full-spectrum color shift, solarize, negative, mono, and edge enhancement. |
+| **Time Sculpt** | Movable temporal lens: position a zone on screen where video is time-displaced by depth and luma. |
+| **Wave Distort** | Sine-wave spatial displacement with adjustable frequency, amplitude, and waveform. |
 
 ## Downloads
 
